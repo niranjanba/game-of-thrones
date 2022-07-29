@@ -2,7 +2,7 @@
 
 ## About this
 
-In the project you can find all the details of charaters, books, houses of Game of thrones. This project is build with the help of `https://anapioficeandfire.com/api`
+In the project you can find all the details of charaters, books, houses of Game of thrones. This project is build with the help of `https://anapioficeandfire.com/api` api.
 
 ## Get Started
 
