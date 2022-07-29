@@ -5,7 +5,7 @@ import Characters from "./pages/characters/Characters";
 import Books from "./pages/books/Books";
 import Houses from "./pages/houses/Houses";
 import Navbar from "./components/Navbar";
-import Hero from "./components/home/Hero";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
     return (
@@ -16,6 +16,7 @@ function App() {
                 <Route path="/characters" element={<Characters />} />
                 <Route path="/books" element={<Books />} />
                 <Route path="/houses" element={<Houses />} />
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Router>
     );
