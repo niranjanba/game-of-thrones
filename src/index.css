@@ -95,6 +95,7 @@ p {
 .btn {
     border: none;
     outline: none;
+    cursor: pointer;
 }
 .section-center {
     display: grid;
@@ -110,6 +111,13 @@ p {
     font-size: 1.2rem;
     text-transform: capitalize;
     color: var(--clr-grey-5);
+}
+.text-btn {
+    color: var(--clr-primary-6);
+    padding: 0.25rem;
+    font-size: 1.3rem;
+    background-color: transparent;
+    font-weight: 500;
 }
 .btn-primary {
     width: max-content;

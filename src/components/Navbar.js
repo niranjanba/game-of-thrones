@@ -101,6 +101,7 @@ const Wrapper = styled.nav`
     .normal {
         background-color: white;
         color: var(--clr-primary-6);
+        box-shadow: var(--light-shadow);
     }
     .navbar-header {
         display: flex;

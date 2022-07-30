@@ -5,6 +5,7 @@ const initialState = {
     isLoading: false,
     characters: [],
     page: 1,
+    character: {},
 };
 
 export const fetchCharacters = createAsyncThunk(
@@ -12,7 +13,21 @@ export const fetchCharacters = createAsyncThunk(
     async (page, thunkApi) => {
         try {
             const res = await axios.get(
-                `https://anapioficeandfire.com/api/characters/?page=${page}`
+                `https://anapioficeandfire.com/api/characters/?page=${page}&pageSize=12`
+            );
+            return res.data;
+        } catch (error) {
+            thunkApi.rejectWithValue("something went wrong");
+        }
+    }
+);
+
+export const fetchSingleCharacter = createAsyncThunk(
+    "characters/fetchSingleCharacter",
+    async (id, thunkApi) => {
+        try {
+            const res = await axios.get(
+                `https://anapioficeandfire.com/api/characters/${id}`
             );
             return res.data;
         } catch (error) {
@@ -40,10 +55,20 @@ const characterSlice = createSlice({
             state.isLoading = true;
         },
         [fetchCharacters.fulfilled]: (state, { payload }) => {
-            state.isLoading = false;
             state.characters = payload;
+            state.isLoading = false;
         },
         [fetchCharacters.rejected]: (state) => {
+            state.isLoading = false;
+        },
+        [fetchSingleCharacter.pending]: (state) => {
+            state.isLoading = true;
+        },
+        [fetchSingleCharacter.fulfilled]: (state, { payload }) => {
+            state.character = payload;
+            state.isLoading = false;
+        },
+        [fetchSingleCharacter.rejected]: (state) => {
             state.isLoading = false;
         },
     },

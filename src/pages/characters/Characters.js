@@ -19,7 +19,7 @@ function Characters() {
     useEffect(() => {
         dispatch(fetchCharacters(page));
     }, [dispatch, page]);
-    console.log(page);
+
     if (isLoading) {
         return (
             <main>
